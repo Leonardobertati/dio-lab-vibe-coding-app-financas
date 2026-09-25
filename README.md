@@ -1,356 +1,221 @@
-# Folga — seu dinheiro, com mais respiro.
+# Folga — seu dinheiro, com mais respiro
 
-**Organização financeira por conversa, pensada para quem está começando.**
+**Organize suas finanças por meio de uma conversa.**
 
-Entrega do desafio [App de Organização de Finanças Pessoais com Vibe Coding — DIO](https://github.com/digitalinnovationone/dio-lab-vibe-coding-app-financas), desenvolvida por **Leonardo Bertati com apoio de Codex**, incluindo revisão complementar no ChatGPT.
+Projeto conceitual do desafio [App de Organização de Finanças Pessoais com Vibe Coding — DIO](https://github.com/digitalinnovationone/dio-lab-vibe-coding-app-financas). Esta entrega reúne o PRD, os prompts, as capturas do aplicativo e uma reflexão sobre o processo.
 
-![Tela real do Folga no desktop](docs/evidencias/04-app-visao-geral.jpg)
+![Folga: conversa como área principal e resumo financeiro ao lado](docs/evidencias/01-conversa-desktop.png)
 
 ## O conceito
 
-O Folga ajuda a transformar uma frase, como **“Gastei 45,90 no almoço”**, em um registro revisável. A pessoa confere o valor, ajusta a categoria e confirma. A partir dos registros, acompanha entradas, saídas, saldo do mês e uma meta de reserva.
+O Folga ajuda quem está começando a organizar o dinheiro e considera formulários e planilhas trabalhosos. A pessoa conta o que aconteceu, conversa com o assistente e confere uma prévia antes de salvar. Pode corrigir o valor ou a categoria pela própria conversa, entender o mês e planejar uma meta.
 
-O problema é o esforço de começar e manter o controle financeiro. A proposta é reduzir a digitação, usar linguagem acessível e preservar o controle da pessoa sobre cada lançamento.
+O chat é a entrada principal do aplicativo. Transações, metas e relatórios complementam a conversa, dando contexto e permitindo conferir os resultados.
 
-**Nesta entrega, a IA foi utilizada para criar e revisar o projeto. O assistente dentro do protótipo é uma simulação por regras locais, sem modelo generativo conectado.** Todos os dados iniciais são fictícios. O saldo representa entradas menos saídas registradas, não o saldo de uma conta bancária.
-
-## Escolha das ferramentas
-
-Por escolha do participante, **Codex substitui Copilot e Lovable** na especificação, construção e revisão. **ChatGPT** foi usado para revisar riscos e critérios do briefing, com capturas reais abaixo. A adaptação mantém o exercício de estruturar intenções, refinar prompts e analisar resultados; não representa aprovação prévia da DIO sobre a troca das ferramentas.
-
-Não foram produzidas evidências de ferramentas que não foram usadas.
-
-## MVP entregue
-
-| Capacidade | Como experimentar |
+| Funcionalidade | Experiência proposta |
 | --- | --- |
-| Registrar por conversa | Escreva uma receita ou despesa, revise a prévia e confirme |
-| Classificar e corrigir | Veja a categoria sugerida e ajuste antes de salvar |
-| Entender o mês | Consulte saldo, entradas, saídas e transações; mude o período |
-| Acompanhar uma reserva | Ajuste alvo, valor reservado e aporte mensal simulado |
-| Explorar um plano simples | Veja despesas por categoria e uma hipótese de redução explicada |
+| Registrar gastos e receitas | Descrever em linguagem natural e conferir a prévia |
+| Classificar e corrigir | Revisar a categoria sugerida e pedir ajustes pela conversa |
+| Entender o mês | Consultar entradas, saídas e saldo dos registros confirmados |
+| Planejar metas | Informar objetivo, valor guardado e prazo ou aporte mensal |
+| Acompanhar o progresso | Ver uma projeção simples e a distribuição das despesas |
 
-O histórico tem busca, filtros, exclusão e opção de desfazer. Os dados de demonstração ficam no navegador, em armazenamento local. Não há conta, conexão bancária, pagamentos, sincronização em nuvem ou API de IA.
+**A versão demonstrada usa IA real, com Gemini 3.1 Flash Lite em um teste local.** Todos os números das capturas são fictícios. A IA interpreta as mensagens; o aplicativo valida as prévias e calcula os resumos. Somente o botão de confirmação salva uma alteração.
 
-O MVP conceitual prevê um agente de IA que compreenda conversas mais variadas. Essa integração é uma evolução futura. O protótipo permite validar primeiro o fluxo e a clareza das informações.
+O saldo é a diferença entre entradas e saídas registradas. Metas são simulações sem juros e não movimentam dinheiro. O protótipo guarda dados no navegador, sem bancos conectados nem sincronização em nuvem. Este repositório apresenta a documentação e as evidências; não disponibiliza um aplicativo hospedado.
 
-## Documentos do projeto
+## Materiais da entrega
 
-| Material | Conteúdo |
+| Material | O que contém |
 | --- | --- |
-| [Análise e planejamento](docs/ANALISE-E-PLANEJAMENTO.md) | Leitura do desafio, escopo, etapas, recursos e validação proposta |
-| [PRD / prompt final](docs/PRD.md) | Problema, público, telas, requisitos e critérios de aceitação |
-| [Fluxo de telas e agente](docs/FLUXO-E-AGENTE.md) | Navegação, confirmação, tom de voz e exemplos |
-| [Prompts e evolução](docs/PROMPTS.md) | Intenção, briefing visual e revisão real |
-| [Processo e reflexão](docs/PROCESSO-E-REFLEXAO.md) | Decisões, comentários e aprendizados do trabalho |
-| [Validação executada](docs/VALIDACAO.md) | Verificações, evidências e limites |
-| [Sistema visual](docs/DESIGN.md) | Referência de design, tokens e decisões de interface |
+| [PRD / prompt final](docs/PRD.md) | Problema, público, telas, comportamento do agente e critérios de aceitação |
+| [Prompts e evolução](docs/PROMPTS.md) | Pedidos, refinamentos e exemplos de interação |
+| [Processo e reflexão](docs/PROCESSO-E-REFLEXAO.md) | Decisões, dificuldades, validações e aprendizados |
+| [Capturas do aplicativo](docs/evidencias) | Evidências reais da experiência no desktop e no celular |
 
-## Prompt final usado com a IA — PRD
+## Prompt final — PRD
 
-O documento abaixo foi utilizado como especificação da implementação no Codex. Ele contém o briefing completo, incluindo os requisitos de tela e os limites da demonstração.
+Briefing consolidado da versão aprovada, organizado para reproduzir os requisitos após os refinamentos. A evolução dos pedidos está registrada em [Prompts e evolução](docs/PROMPTS.md).
 
 <details>
-<summary><strong>Abrir o PRD / prompt final completo</strong></summary>
+<summary><strong>Ler o PRD completo</strong></summary>
 
-# PRD / prompt final — Folga
 
-> Este documento é o briefing final para orientar a IA na criação do conceito e do protótipo. O texto a partir de “Papel e objetivo” pode ser copiado como um único prompt. Os critérios abaixo são requisitos e metas de validação, não uma declaração de que todos os testes já foram executados.
+## PRD / prompt final — Folga
 
-## Papel e objetivo
+> Briefing final consolidado para reproduzir a proposta após as revisões. Não é uma transcrição de uma única mensagem histórica. Os requisitos abaixo orientam o produto; as verificações realizadas estão resumidas em [Processo e reflexão](docs/PROCESSO-E-REFLEXAO.md).
 
-Atue como parceiro de produto, design e desenvolvimento. Crie o **Folga**, um aplicativo educativo de organização de finanças pessoais por conversa para quem está começando a cuidar do dinheiro.
+### Contexto e objetivo
 
-Use português do Brasil e linguagem simples. Entregue um conceito claro, um plano de MVP, um protótipo responsivo navegável e documentação que explique as decisões. O projeto será apresentado no desafio de Vibe Coding da DIO, usando **Codex em substituição a Copilot e Lovable**. Registre somente ferramentas e interações realmente utilizadas.
+Crie o **Folga**, um aplicativo educativo de organização de finanças pessoais por conversa. A proposta é: **“Converse sobre o seu dinheiro. Entenda o seu mês.”**
 
-O objetivo da experiência é permitir que a pessoa descreva uma receita ou despesa com uma frase, revise uma sugestão de registro e entenda seu mês. A frase que resume a proposta é: **“Converse sobre o seu dinheiro. Entenda o seu mês.”**
+A conversa deve ser a tela principal. A pessoa precisa conseguir registrar uma despesa, entender os gastos do mês e planejar uma meta com linguagem natural, sem começar por um formulário ou uma planilha.
 
-## Contexto e problema
+Use português do Brasil, linguagem acessível e uma interface responsiva. Entregue um MVP demonstrável com dados fictícios, acompanhado do conceito, das telas, dos prompts e de uma reflexão sobre o processo. A entrega pública do desafio deve conter documentação e capturas, sem código-fonte ou HTML.
 
-Muitas pessoas abandonam o controle financeiro porque os aplicativos exigem vários campos, planilhas parecem complexas e os números não se transformam facilmente em decisões compreensíveis.
+### Problema, público e hipótese
 
-Queremos diminuir o esforço do primeiro registro e oferecer uma visão simples do mês, com uma meta de reserva e observações educativas baseadas nos dados que a própria pessoa registrou.
+Muitas pessoas abandonam o controle financeiro por causa do esforço de preencher campos e da dificuldade de transformar números em decisões compreensíveis.
 
-## Público e hipótese de valor
+O público inicial são pessoas adultas que estão começando a organizar o dinheiro, principalmente pelo celular. A hipótese é que uma conversa com prévias simples e confirmação explícita torne o registro menos trabalhoso. Essa hipótese ainda precisa de validação com participantes.
 
-O público inicial são pessoas brasileiras adultas, iniciantes em organização financeira, que usam principalmente o celular e desejam acompanhar receitas, despesas e uma reserva sem linguagem técnica.
+### Cinco capacidades do MVP
 
-A hipótese é que um registro por conversa com confirmação seja mais acessível do que começar por um formulário completo. Essa hipótese ainda precisa ser validada com pessoas reais. Não trate essa suposição como pesquisa concluída.
+| Capacidade | Experiência esperada |
+| --- | --- |
+| Registrar por conversa | “10 reais na padaria” gera uma prévia de despesa, sem salvar automaticamente |
+| Classificar e corrigir | A IA sugere Alimentação; “na verdade foram 12 reais” corrige a prévia atual |
+| Entender o mês | Perguntas sobre receitas, despesas e categorias usam o contexto dos registros confirmados |
+| Planejar uma meta | O assistente esclarece objetivo, valor já reservado e aporte; apresenta uma proposta confirmável |
+| Consultar detalhes | Transações, metas e relatórios complementam a conversa com números verificáveis |
 
-## Escopo e fidelidade da demonstração
+### Comportamento do assistente
 
-O conceito prevê assistência com IA, mas este protótipo deve funcionar inteiramente no navegador, **sem backend e sem modelo generativo conectado**.
+O assistente deve conversar de forma breve, acolhedora e sem julgamento. Faça uma pergunta por vez quando faltar informação. Evite culpa, promessas de economia garantida e recomendações de investimentos específicos.
 
-Implemente um interpretador local por regras para demonstrar exemplos simples de conversa. Deixe visível na interface e no README que a interpretação e a classificação são uma **demonstração por regras**, com limitações. Não apresente respostas como se fossem produzidas por uma IA real em execução.
+- Diferencie uma sugestão de uma alteração efetivamente salva.
+- Não invente transações, valores, datas, rendimentos ou informações ausentes.
+- Use o resumo calculado pelo aplicativo ao falar de saldos e categorias.
+- Quando receber uma correção, preserve os campos da prévia que não foram alterados.
+- Mostre apenas uma prévia de alteração por vez: transação ou meta.
+- Consultar o mês não deve criar um lançamento ou substituir uma meta.
+- Uma mensagem como “confirmo” não substitui o botão de confirmação da interface.
+- Não apresente uma resposta em linguagem natural como prova de que algo foi salvo.
+- Em falhas de conexão, limite de uso ou resposta inválida, explique o ocorrido e ofereça nova tentativa sem modificar os registros.
 
-Use apenas dados fictícios. O cenário inicial deve representar setembro de 2026. Exiba o mês e ano para evitar que os dados de demonstração pareçam atuais automaticamente.
+### Jornada principal
 
-### Incluído no MVP
+1. Abrir a tela **Conversa**, com o cenário fictício de setembro de 2026 identificado.
+2. Escrever “10 reais na padaria”.
+3. Conferir a prévia com descrição, categoria, data e valor.
+4. Escrever “na verdade foram 12 reais” para corrigir o valor.
+5. Usar **Confirmar registro** ou **Cancelar**.
+6. Após confirmar, consultar o resumo atualizado e perguntar sobre os gastos do mês.
+7. Pedir ajuda para uma meta, completar as informações necessárias e revisar a proposta antes de confirmá-la.
 
-1. Registrar receitas e despesas por conversa, com prévia e confirmação.
-2. Sugerir e permitir corrigir a categoria do lançamento.
-3. Consultar painel, transações e relatório simples do período.
-4. Acompanhar uma meta de reserva e simular aporte mensal.
-5. Receber observações educativas calculadas de forma transparente.
+### Telas e hierarquia visual
 
-### Fora do MVP
+#### Conversa — tela principal
 
-Não integrar bancos, cartões, Open Finance, pagamentos, modelos de IA ou serviços externos. Não criar autenticação, contas reais, backend, sincronização em nuvem, aconselhamento de investimento, previsão financeira sofisticada, importação de arquivos, OCR ou interpretação ilimitada de linguagem natural.
+O chat ocupa a maior área da tela, com histórico legível, sugestões de início e campo de mensagem evidente. As sugestões iniciais são **Registrar gasto**, **Entender meu mês** e **Criar uma meta**.
 
-## Comportamento do agente financeiro
+No desktop, receitas, despesas, saldo, meta e últimos registros aparecem em uma coluna complementar. No celular, a conversa continua sendo o primeiro conteúdo e os resumos ficam em segundo plano. Use verde escuro, superfícies claras e espaçamento suficiente para a leitura.
 
-O agente do conceito deve ser acolhedor, breve, educativo e sem julgamento. Evite culpa, pressão ou frases como “você gastou errado”. Prefira perguntas e explicações concretas: “Encontrei R$ 45,90 em alimentação. Confira antes de registrar.”
+A prévia deve aparecer junto da conversa e oferecer confirmação e cancelamento claros. A confirmação cria uma única alteração; cliques repetidos não podem duplicá-la. Mantenha a conversa ao navegar entre telas e preserve o conteúdo local válido ao recarregar.
 
-- Não invente receitas, despesas, datas, rendimentos ou metas que a pessoa não informou.
-- Não confirme um registro enquanto ele estiver apenas na etapa de prévia.
-- Se faltarem informações ou houver ambiguidade, explique o que precisa ser informado.
-- Trate uma mensagem de cada vez e mantenha claro qual lançamento está sendo revisado.
-- Não prometa economia, quitação de dívida ou prazo garantido.
-- Não prescreva produtos financeiros. O objetivo é organizar e explicar os dados.
-- Mostre o fundamento de qualquer observação: período, categoria, soma ou fórmula usada.
-- Se o pedido estiver fora das regras demonstradas, explique a limitação e apresente um exemplo aceito.
+#### Transações
 
-## Jornada principal
+Liste os lançamentos confirmados com descrição, data, categoria, tipo e valor. Ofereça busca, filtros, exclusão e possibilidade de desfazer a última exclusão. Resumos e relatórios devem acompanhar as mudanças.
 
-1. Abrir o Folga e identificar o aviso de demonstração.
-2. Entender o painel inicial com valores fictícios de setembro de 2026.
-3. Acessar a conversa e escrever “Gastei R$ 45,90 no almoço”.
-4. Ver uma sugestão de despesa, com valor e categoria.
-5. Revisar ou corrigir a sugestão e confirmar.
-6. Encontrar o lançamento nas transações e perceber sua influência no resumo e no relatório.
-7. Consultar a reserva e simular um aporte mensal.
+#### Metas
 
-## Telas e requisitos da interface
+Mostre objetivo, valor-alvo, valor já reservado, aporte mensal e progresso. Permita planejar e revisar a meta sem movimentar dinheiro. Identifique a projeção como uma conta simples, sem juros ou rendimentos.
 
-Organize a navegação em quatro destinos: **Visão geral**, **Transações**, **Metas** e **Relatórios**. A conversa é uma área da Visão geral, acessível também pela ação “Novo registro”; não exige um quinto destino de navegação. As seções abaixo detalham essas quatro telas e a área de conversa.
+#### Relatórios
 
-### 1. Visão geral
+Apresente as despesas por categoria com valores e percentuais. As observações educativas devem apontar os números que as sustentam. Sem despesas no período, mostre um estado vazio, sem percentuais inválidos.
 
-Apresente uma introdução curta, o período em análise e três valores principais: **receitas, despesas e saldo do período**.
+### Regras financeiras e confirmação
 
-- Receitas = soma das entradas confirmadas do período.
-- Despesas = soma das saídas confirmadas do período.
-- Saldo do período = receitas − despesas.
-- Explique que esse saldo considera os registros da demonstração; ele não representa automaticamente o saldo de uma conta bancária.
-- Mostre lançamentos recentes, um resumo da meta de reserva e uma chamada clara para registrar por conversa.
-- Use valores, legendas e rótulos que permitam compreender os dados sem depender apenas de cores.
+- Trate valores monetários em centavos e apresente-os em reais no padrão brasileiro.
+- **Receitas:** soma das entradas confirmadas do período.
+- **Despesas:** soma das saídas confirmadas do período.
+- **Saldo do período:** receitas menos despesas; não é um saldo bancário conectado.
+- **Valor restante de uma meta:** máximo entre zero e alvo menos valor reservado.
+- **Prazo estimado:** valor restante dividido pelo aporte mensal positivo, arredondado para cima em meses.
+- Se o aporte for zero, informe que não há prazo calculado. Se a meta já estiver coberta, não invente meses restantes.
+- Calcule totais e a projeção exibida na prévia por regras do aplicativo, independentemente do texto gerado pela IA.
+- Alterar uma meta ou simular um aporte não cria uma despesa, transfere dinheiro ou aumenta automaticamente a reserva.
 
-### Área de conversa — integrada à Visão geral
+Exemplo: alvo de R$ 3.000, R$ 600 já reservados e aporte de R$ 300 por mês resultam em uma projeção de oito meses, sem rendimentos.
 
-Crie uma área de conversa com mensagens legíveis, exemplos clicáveis e um campo identificado para escrever uma receita ou despesa.
+### IA, dados e limites do teste
 
-- Aceite exemplos como “Gastei 45,90 no almoço”, “Paguei R$ 1.200,50 de aluguel” e “Recebi R$ 800 de freelance”.
-- Reconheça valores em formato brasileiro, sem confundir separador de milhar com separador decimal.
-- Sugira tipo, descrição e categoria usando regras demonstrativas.
-- Use a data do contexto de demonstração como padrão e deixe a data explícita na prévia.
-- Permita revisar e corrigir os campos relevantes antes de salvar.
-- Ofereça ações claras para confirmar e cancelar a sugestão.
-- Rejeite valor zero, negativo, ausente ou inválido com uma mensagem útil.
-- Para frases que não possam ser interpretadas com segurança pelas regras disponíveis, peça reformulação em vez de fabricar um registro.
-- Não grave a sugestão automaticamente. Um envio de mensagem pode gerar a prévia; somente a confirmação cria a transação.
-- Depois da confirmação, impeça que o mesmo cartão seja confirmado duas vezes.
-- Não inclua nomes técnicos de implementação na conversa cotidiana; apresente o aviso de simulação de modo discreto e acessível.
+A versão local de teste utiliza **Gemini 3.1 Flash Lite** para interpretar mensagens e conversar com contexto. Não apresente a experiência final como um interpretador exclusivamente por regras.
 
-### 2. Transações
+As chamadas passam por um servidor local. A credencial permanece em arquivo local ignorado pelo Git, fora do navegador, das capturas e da documentação pública. O aplicativo valida os dados propostos antes de criar uma prévia e controla a confirmação separadamente da resposta da IA.
 
-Exiba os lançamentos confirmados com descrição, data, tipo, categoria e valor formatado.
+Use apenas dados fictícios de setembro de 2026. Registros, meta e histórico da conversa ficam no `localStorage` do navegador. Isso não significa que a IA funciona offline: mensagens e contexto necessário são enviados ao provedor durante a conversa. Não há sincronização nem backup em nuvem dos registros do aplicativo.
 
-- Permita filtrar ou buscar os registros, pelo menos distinguindo entradas e saídas.
-- Diferencie visualmente receitas e despesas, mantendo os rótulos textuais.
-- Permita excluir um lançamento e desfazer a última exclusão enquanto a ação estiver disponível.
-- Atualize as visualizações dependentes quando os dados mudarem.
-- Se nenhum item corresponder ao filtro, informe isso e ofereça uma forma de limpar o filtro.
+Adote limites de chamadas para o teste, respostas curtas e tratamento explícito de indisponibilidade. Cotas do provedor podem variar; não prometa gratuidade ilimitada.
 
-### 3. Metas — reserva
+#### Fora do escopo
 
-Apresente uma meta demonstrativa com nome, valor-alvo, valor já reservado e progresso.
+Integração bancária, Open Finance, pagamentos, movimentação de dinheiro, autenticação, contas compartilhadas, sincronização entre dispositivos, importação de extratos, recomendações de investimentos e operação pública em produção.
 
-- Mostre a diferença entre valor-alvo e valor reservado.
-- Permita simular um aporte mensal positivo e informar o número estimado de meses para chegar à meta.
-- Calcule meses = teto de `máximo(0, alvo − reservado) ÷ aporte mensal`.
-- Se a meta já estiver atingida, informe isso sem criar prazo negativo.
-- Para aporte nulo, negativo ou inválido, solicite um valor válido e não apresente uma estimativa infinita ou incorreta.
-- Identifique a simulação como uma conta simples, sem juros, inflação ou rendimentos.
-- Alterar o aporte simulado não deve criar uma despesa, transferir dinheiro ou aumentar automaticamente o valor reservado.
+O teste é local. A publicação do material no GitHub não equivale a hospedar o aplicativo.
 
-### 4. Relatórios
+### Critérios de aceitação
 
-Mostre como as despesas confirmadas do período se distribuem entre as categorias, por meio de gráfico acompanhado de valores e percentuais legíveis.
+| Situação | Resultado esperado |
+| --- | --- |
+| Abrir o aplicativo | Conversa em destaque, período e dados fictícios identificáveis |
+| Enviar um gasto válido | Prévia com dados revisáveis; totais ainda inalterados |
+| Corrigir o valor em uma nova mensagem | Atualização da mesma prévia, sem registro duplicado |
+| Confirmar ou cancelar | Uma alteração após confirmar; nenhuma alteração ao cancelar |
+| Informar dados insuficientes | Pergunta de esclarecimento, sem preenchimento inventado |
+| Consultar gastos do mês | Resposta coerente com o resumo calculado dos registros confirmados |
+| Planejar uma meta | Prévia com valores, projeção determinística e confirmação explícita |
+| O modelo escrever como se tivesse salvado uma prévia | Interface mantém o estado pendente e usa mensagem de prévia, sem anunciar gravação |
+| Falhar a chamada à IA | Erro compreensível e nova tentativa, sem perda ou alteração indevida dos registros |
+| Recarregar ou trocar de tela | Preservação do estado local válido da conversa e das finanças |
+| Usar desktop e celular | Conteúdo legível, ações acessíveis e ausência de rolagem horizontal indevida |
 
-- Use como base apenas despesas do período, sem misturar receitas na distribuição.
-- Exiba uma observação educativa derivada dos dados, por exemplo, a categoria de maior despesa e sua participação no total.
-- Mostre a conta ou os números que sustentam a observação.
-- Caso apresente uma simulação de redução de gasto, declare a porcentagem usada como hipótese e mostre o cálculo. Não diga que a economia já aconteceu.
-- Sem despesas, exiba um estado vazio educativo; não produza percentuais inválidos ou dicas que pressuponham gastos inexistentes.
+Verifique esses caminhos com dados fictícios. Diferencie testes automatizados, conferência visual e chamadas reais à IA; nenhum deles, isoladamente, representa uma pesquisa de usabilidade ou garantia de ausência de falhas.
 
-## Direção visual e adaptação às telas
+### Validação futura proposta
 
-A identidade deve ser acolhedora e sóbria, com boa hierarquia, áreas de respiro e uma cor de destaque coerente com a marca Folga. Evite excesso de elementos decorativos que concorram com os números e as ações principais.
+Convide cinco pessoas iniciantes para registrar e corrigir uma despesa, cancelar uma prévia, consultar o mês e interpretar uma meta. Observe se entendem que a prévia ainda não foi salva e que uma simulação não movimenta dinheiro.
 
-**Desktop:** navegação persistente, área principal ampla, resumos visíveis e boa separação entre contexto, conteúdo e ação. Em telas maiores, painéis complementares podem ficar lado a lado.
+Como metas iniciais, busque quatro de cinco participantes concluindo as tarefas sem ajuda e todos distinguindo prévia de confirmação. Essas são metas de um experimento futuro, não resultados já obtidos.
 
-**Celular:** empilhe o conteúdo em uma coluna, mantenha a navegação acessível, use controles confortáveis para toque e preserve o acesso ao campo de conversa. A tela não deve depender de rolagem horizontal para operar suas funções principais.
+### Entregáveis
 
-O protótipo deve ser utilizável em larguras aproximadas de 390 px e 1440 px. Considere textos longos, valores maiores e ausência de dados.
+1. Resumo do conceito e do problema.
+2. Este PRD / prompt final e o registro da evolução dos prompts.
+3. Capturas reais do aplicativo e evidências de interação com IA, com legendas claras.
+4. Reflexão sobre decisões, ajustes, aprendizados e limitações.
+5. README organizado para leitura independente da conversa de criação.
 
-## Estados, acessibilidade e feedback
-
-- Identifique campos com rótulos; não use somente placeholder como instrução.
-- Garanta navegação por teclado, foco visível e nomes acessíveis para botões de ícone.
-- Use contraste suficiente e não dependa exclusivamente de verde ou vermelho para transmitir significado.
-- Mantenha a ordem de títulos e a leitura dos componentes coerentes.
-- Mostre confirmação após salvar, retorno após excluir e uma opção clara de desfazer.
-- Mostre erros próximos à ação que os causou e explique como corrigir.
-- Não deixe a tela em branco se o armazenamento local estiver indisponível ou contiver dados inválidos; use uma recuperação compreensível e preserve a possibilidade de continuar a demonstração.
-- Ao restaurar os dados fictícios, deixe claro o efeito sobre os registros locais da demonstração e peça confirmação.
-
-## Dados e implementação
-
-Use React com Vite. Mantenha a solução pequena e compreensível, sem dependências que não tragam benefício direto ao protótipo.
-
-- Modele transações com identificador, descrição, valor em centavos, tipo, categoria e data.
-- Calcule valores monetários em centavos e formate a apresentação com o padrão brasileiro.
-- Derive painel, transações e relatório da mesma coleção de dados e do mesmo período selecionado.
-- Persista os dados de demonstração em `localStorage`, com uma chave própria do projeto.
-- Ofereça uma ação para restaurar os dados iniciais fictícios.
-- Não inclua dados pessoais reais, credenciais, chaves de API ou integração bancária.
-- Informe que os dados ficam neste navegador e que não há sincronização ou backup em nuvem.
-
-## Critérios de aceitação
-
-| ID | Situação | Resultado esperado |
-| --- | --- | --- |
-| CA01 | Abrir a demonstração | Marca Folga, aviso de demonstração, período e navegação identificáveis |
-| CA02 | Enviar “Gastei R$ 45,90 no almoço” | Prévia de despesa por R$ 45,90; categoria sugerida; nenhuma alteração nos totais antes da confirmação |
-| CA03 | Corrigir e confirmar uma prévia | Um único lançamento salvo com os dados revisados e atualização das visualizações |
-| CA04 | Cancelar uma prévia | Nenhuma transação criada |
-| CA05 | Enviar “Recebi R$ 800 de freelance” | Prévia de receita por R$ 800,00, sujeita a confirmação |
-| CA06 | Enviar “Paguei R$ 1.200,50 de aluguel” | Valor interpretado como 120.050 centavos |
-| CA07 | Enviar texto sem valor ou valor inválido | Mensagem de orientação, sem registro incorreto |
-| CA08 | Consultar painel e relatório após um registro | Mesma fonte de dados e período; receitas, despesas e saldo coerentes |
-| CA09 | Aplicar um filtro sem correspondências | Estado vazio e forma de remover o filtro |
-| CA10 | Excluir e desfazer uma transação | Remoção seguida de restauração do registro e dos totais correspondentes |
-| CA11 | Recarregar após uma alteração | Dados locais válidos preservados no mesmo navegador |
-| CA12 | Simular alvo de R$ 6.000, reserva de R$ 1.800 e aporte de R$ 300 | Estimativa de 14 meses, sem movimentação de dinheiro e sem rendimento implícito |
-| CA13 | Simular aporte zero, negativo ou inválido | Orientação de correção, sem estimativa incorreta |
-| CA14 | Consultar relatório sem despesas | Estado vazio, sem divisão por zero |
-| CA15 | Usar em 390 px e 1440 px de largura | Conteúdo legível, controles utilizáveis e navegação funcional |
-| CA16 | Usar teclado para as ações centrais | Foco perceptível, campos identificados e ações acionáveis |
-| CA17 | Restaurar a demonstração | Efeito informado, confirmação solicitada e dados fictícios iniciais recuperados |
-
-Registre separadamente quais critérios foram efetivamente verificados, como foram verificados e quais limitações permaneceram. Não transforme este checklist em um relatório de testes aprovados sem execução.
-
-## Recursos necessários para o MVP
-
-- Um ambiente de desenvolvimento com Node.js, React e Vite.
-- Um navegador para execução, teste responsivo e capturas.
-- Dados fictícios suficientes para demonstrar entradas, saídas, categorias e reserva.
-- Codex para apoiar a especificação, implementação, revisão e documentação.
-- Um repositório no GitHub para publicar o material do desafio.
-
-Não é necessária uma chave de API, assinatura de serviço de IA ou banco de dados para a demonstração proposta.
-
-## Plano de validação inicial
-
-Proponha um piloto com cinco pessoas iniciantes usando somente dados fictícios. Peça que registrem uma despesa, cancelem uma prévia incorreta, expliquem o saldo do mês, excluam e restaurem um registro e interpretem uma simulação de reserva.
-
-Metas iniciais propostas: quatro de cinco participantes concluírem as tarefas principais sem orientação direta; cinco de cinco entenderem que uma prévia ainda não confirmada não foi salva; quatro de cinco entenderem que o prazo da reserva é uma estimativa sem rendimento.
-
-Observe dificuldades, tempo aproximado por tarefa e comentários voluntários. Use essas informações para priorizar ajustes de clareza e usabilidade. Essas metas são hipóteses de validação, e não resultados de pesquisa já obtidos.
-
-## Entregáveis e documentação
-
-1. Apresentação do conceito e do problema resolvido.
-2. PRD / prompt final completo, com escopo, telas, comportamento e critérios de aceitação.
-3. Protótipo responsivo acompanhado de instruções de execução.
-4. Capturas reais das telas e evidências reais de interação com a IA, identificando o que cada imagem demonstra.
-5. Registro do processo: intenção inicial, refinamento das instruções, decisões, limitações e verificações realizadas.
-6. Reflexão breve sobre o que funcionou, o que exigiu ajustes e o que o processo ensina sobre conversar com IA, sem inventar depoimentos pessoais.
-7. README organizado com todos os itens exigidos pelo desafio e links para os documentos complementares.
-
-Mantenha explícita a separação entre **conceito de produto**, **funcionalidades implementadas na demonstração** e **evoluções futuras**. O resultado deve ser compreensível para alguém que acesse apenas o repositório público, sem ter acompanhado a conversa de criação.
 
 </details>
 
-## Evidências reais das interações com IA
+## Telas e interações reais
 
-Os prints seguintes são da revisão complementar feita no **ChatGPT**. Mostram trechos do pedido e da resposta. O [prompt integral](docs/evidencias/01-chatgpt-prompt.txt) e a [resposta textual integral](docs/evidencias/02-chatgpt-resposta.md) também estão disponíveis.
+As capturas abaixo foram feitas no protótipo local. Mostram respostas da IA e cartões de prévia apresentados pelo aplicativo. Não são imagens geradas para simular uma conversa.
 
-**Pedido de revisão do briefing do Folga:**
+### Conversar, revisar e confirmar
 
-![Pedido real de revisão no ChatGPT](docs/evidencias/01-chatgpt-revisao-prompt.jpg)
+| Consulta do mês | Prévia de uma meta | Prévia de um gasto |
+| :---: | :---: | :---: |
+| <img src="docs/evidencias/06-interacao-mobile.png" width="250" alt="Pergunta sobre o mês e resposta real do assistente com os valores fictícios" /> | <img src="docs/evidencias/02-meta-mobile.png" width="250" alt="Meta Viagem de 3 mil reais, 600 reais já reservados e 300 reais mensais, aguardando confirmação" /> | <img src="docs/evidencias/03-gasto-mobile.png" width="250" alt="Gasto de 5 reais com café, classificado como alimentação e aguardando confirmação" /> |
 
-**Riscos levantados pela revisão:**
+Na consulta, as entradas de R$ 5.800,00 e as saídas de R$ 3.460,00 resultam em R$ 2.340,00 no mês. No plano de viagem, faltam R$ 2.400,00: em oito meses, o aporte é de R$ 300,00 mensais, sem juros. A prévia do café demonstra o passo de confirmação antes de registrar.
 
-![Resposta real do ChatGPT sobre riscos](docs/evidencias/02-chatgpt-revisao-riscos.jpg)
+### Acompanhar metas e despesas
 
-**Critérios propostos para orientar a verificação:**
+<details>
+<summary><strong>Ver a tela de metas</strong></summary>
 
-![Resposta real do ChatGPT com critérios de aceitação](docs/evidencias/03-chatgpt-revisao-criterios.jpg)
+![Meta confirmada: viagem de 3 mil reais com projeção de oito meses](docs/evidencias/05-meta-desktop.png)
 
-Os critérios apresentados pela IA não são resultados de testes. As verificações realmente executadas estão no [registro de validação](docs/VALIDACAO.md).
+</details>
 
-## Telas do protótipo
+<details>
+<summary><strong>Ver o relatório por categoria</strong></summary>
 
-As imagens abaixo são capturas do aplicativo renderizado no navegador, com dados fictícios.
+![Relatório de despesas do mês com valores e percentuais por categoria](docs/evidencias/04-relatorio-desktop.png)
 
-**Revisão de um lançamento antes de confirmar:**
-
-![Prévia editável de lançamento](docs/evidencias/05-app-confirmacao.jpg)
-
-**Relatório do período:**
-
-![Relatório de despesas por categoria](docs/evidencias/06-app-relatorios.jpg)
-
-**Adaptação para celular:**
-
-<img src="docs/evidencias/07-app-mobile.jpg" alt="Folga em uma tela de celular de 390 pixels" width="390">
-
-**Conversa e confirmação no celular:**
-
-<img src="docs/evidencias/09-app-mobile-conversa.jpg" alt="Prévia editável de um gasto de R$ 32,50 no celular" width="390">
-
-A [imagem inicial de conceito](docs/evidencias/00-conceito-visual.png) foi gerada pela ferramenta de imagens do Codex e é identificada como referência visual. Ela não substitui as capturas reais acima.
+</details>
 
 ## Reflexão sobre o processo
 
-**O que funcionou bem:** transformar uma ideia ampla em uma jornada pequena — escrever, revisar e confirmar — deixou o objetivo claro. Exemplos concretos, limites do MVP e critérios verificáveis orientaram a IA melhor do que um pedido genérico para criar um aplicativo.
+O primeiro desenho deixava o chat em segundo plano. Ao revisar o problema, ficou claro que a conversa deveria orientar a experiência. Essa mudança aproximou a interface da proposta de reduzir o esforço para organizar as finanças.
 
-**O que exigiu ajustes:** a conversa por regras tem limites. A revisão encontrou casos de valores incompletos, sinal negativo e datas ambíguas que precisavam ser tratados. A imagem de referência também não resolvia, sozinha, estados de erro, navegação, responsividade ou persistência.
+O que funcionou melhor foi transformar intenções em exemplos verificáveis: registrar, corrigir, conferir os valores e só então confirmar. O teste com IA real trouxe flexibilidade, mas também mostrou que uma resposta convincente não garante um comportamento correto. Uma resposta chegou a dizer que havia registrado um gasto antes da confirmação; por isso, a comunicação das prévias passou a ser controlada pelo aplicativo.
 
-**O que foi aprendido:** um bom prompt precisa explicar o que deve acontecer e como reconhecer um resultado correto. A IA acelera o trabalho, mas comparar intenção, código e comportamento continua necessário. Demonstrar os limites com transparência faz parte da qualidade da entrega.
+Também ocorreram falhas pontuais do serviço. Preservar a mensagem e permitir o reenvio ajudou a manter o fluxo sem alterações indevidas. A principal aprendizagem foi que conversar com IA exige contexto, limites claros e revisão do resultado. O prompt inicia o trabalho; a observação e os ajustes tornam a proposta mais consistente.
 
-Esta reflexão descreve o processo documentado; não afirma que houve entrevistas, validação com usuários ou experiência pessoal não registrada. A [análise completa](docs/PROCESSO-E-REFLEXAO.md) aprofunda as decisões.
+Foram verificados registros, correções, confirmação, cancelamento, consultas, planejamento de meta e persistência da conversa, além da apresentação no desktop e no celular. A versão local passou por 22 testes automatizados e pela geração de build. Isso valida os cenários exercitados; ainda não houve pesquisa com usuários nem comprovação de economia financeira real.
 
-## Executar o protótipo
-
-Requisitos: Node.js 22 ou superior e npm. O projeto não precisa de chaves de API.
-
-```bash
-git clone https://github.com/Leonardobertati/dio-lab-vibe-coding-app-financas.git
-cd dio-lab-vibe-coding-app-financas
-npm ci
-npm run dev
-```
-
-Abra o endereço local mostrado pelo Vite. No Windows PowerShell, se a política bloquear `npm`, utilize `npm.cmd`.
-
-```bash
-npm test
-npm run build
-npm run preview
-```
-
-Exemplos de conversa: `Gastei 45,90 no almoço`, `Recebi 800 de freelance` e `Paguei 1.200,50 de aluguel`. Cada registro exige confirmação. A data padrão é contextualizada na demonstração e pode ser revisada.
-
-Para voltar ao cenário inicial, utilize **Restaurar demonstração** e confirme. Isso substitui apenas os registros fictícios desta aplicação no navegador.
-
-## Validação inicial proposta
-
-O próximo experimento é um piloto com cinco pessoas iniciantes, usando dados fictícios. As tarefas serão registrar e corrigir uma despesa, cancelar uma prévia, interpretar o saldo e explicar a simulação de reserva. Metas e método estão no PRD. **Esse piloto ainda não foi realizado.**
-
-## Link para entrega
-
-[Repositório público do Folga](https://github.com/Leonardobertati/dio-lab-vibe-coding-app-financas)
-
-O repositório preserva o vínculo de fork com a DIO e o histórico do material-base. Para concluir a submissão, copie o link acima no campo **ENTREGAR PROJETO** da plataforma DIO.
+Leia a análise detalhada em [Processo e reflexão](docs/PROCESSO-E-REFLEXAO.md).

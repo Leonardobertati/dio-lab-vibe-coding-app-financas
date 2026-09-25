@@ -1,70 +1,62 @@
 # Processo, decisões e reflexão — Folga
 
-Projeto do desafio de Vibe Coding da DIO. Produção em 24 de setembro de 2026, com direção de Leonardo Bertati e apoio de Codex. O ChatGPT participou de uma revisão complementar do briefing.
+O Folga explora uma pergunta: **como tornar o controle financeiro mais simples para quem está começando?** A resposta proposta é permitir que a pessoa converse sobre o dinheiro, revise sugestões e mantenha o controle sobre cada alteração.
 
-## Como a ideia foi transformada em entrega
+## Da ideia à experiência final
 
-O ponto de partida foi o problema do enunciado: organizar as finanças costuma exigir registros repetitivos e pouco acolhedores para iniciantes. A primeira decisão foi definir uma tarefa pequena e observável: escrever uma despesa, revisar os dados reconhecidos e confirmar o registro.
+O primeiro passo foi reduzir o problema a uma tarefa observável: descrever uma despesa, conferir os dados e confirmar um registro. O [PRD](PRD.md) organizou contexto, público, funcionalidades, limites e critérios de aceitação.
 
-O conceito recebeu o nome **Folga**. A proposta não é prometer riqueza nem dizer à pessoa como deve viver. É dar mais clareza sobre o mês e permitir pequenos planos acompanháveis.
+A primeira interface deu muito destaque ao painel e deixou a conversa como elemento secundário. Isso não correspondia à intenção de organizar as finanças por conversa. A revisão preservou os cálculos, as transações, as metas e os relatórios, mas mudou a hierarquia: **o chat passou a ocupar a tela principal**.
 
-A análise foi convertida em um [PRD](PRD.md), utilizado como especificação durante a construção no Codex. O documento delimitou cinco capacidades, quatro destinos de navegação, estados de erro e critérios de aceitação. A conversa integra a visão geral; ela não precisa de uma quinta entrada no menu.
+Também houve uma mudança de capacidade. A interpretação inicial por regras demonstrava frases simples, mas era limitada para esclarecimentos e correções. A versão local passou a utilizar **Gemini 3.1 Flash Lite**, com histórico e contexto dos dados fictícios. Assim, tornou-se possível conversar sobre uma prévia, corrigir valores e pedir ajuda para planejar uma meta.
 
-Antes da implementação visual, a ferramenta de geração de imagens do Codex produziu um [conceito de interface](evidencias/00-conceito-visual.png). Esse arquivo é uma referência de design, **não um print de um aplicativo funcionando**. A implementação usa componentes reais, controles e cálculos locais. As capturas do protótipo são identificadas separadamente no README.
+## Decisões que definem o produto
 
-O trabalho no Codex foi dividido entre especificação, implementação e revisão de consistência, com integração e conferência da entrega. Esse processo ajudou a manter decisões de produto, código e documentação alinhados.
-
-## Por que Codex e ChatGPT
-
-A escolha do participante foi usar **Codex no lugar de Copilot e Lovable**. O objetivo didático foi preservado: transformar intenção em instruções, revisar resultados e documentar o processo. Não foram utilizadas nem simuladas telas de Copilot ou Lovable. Esta é uma adaptação declarada das ferramentas do enunciado, sem afirmar aprovação prévia da DIO.
-
-O ChatGPT foi utilizado como revisor complementar. O [pedido real](evidencias/01-chatgpt-prompt.txt) descreve o escopo do Folga e pede três riscos e três critérios de aceitação, sem código ou resultados inventados. A [resposta extraída da conversa](evidencias/02-chatgpt-resposta.md) está preservada com as capturas correspondentes.
-
-## O que a revisão acrescentou
-
-| Ponto levantado | Tratamento no projeto |
+| Decisão | Motivo |
 | --- | --- |
-| Não confundir IA criadora com IA integrada | README e interface identificam o assistente demonstrativo; o código não chama modelo externo |
-| Frases ambíguas e múltiplos valores | Interpretador restrito; orientações para reformular; prévia antes de confirmar |
-| Confirmação duplicada | A prévia confirmada deixa de estar disponível para novo salvamento |
-| Totais inconsistentes após exclusão | Resumos e relatório derivados da mesma coleção de transações |
-| Divisão por zero na simulação | Validação do aporte e tratamento de meta atingida |
-| Simulação confundida com movimentação | Aporte simulado não cria despesa nem aumenta a reserva automaticamente |
+| Conversa como tela inicial | Aproximar a interface da tarefa prometida pelo conceito |
+| Prévia antes de salvar | Permitir que a pessoa confira a interpretação e corrija equívocos |
+| Confirmação por botão | Separar uma resposta da IA de uma alteração efetiva |
+| Totais e projeções calculados pelo aplicativo | Manter números verificáveis, independentemente da redação do modelo |
+| Dados fictícios e persistência local | Testar a experiência sem depender de dados bancários ou contas reais |
+| Documentação e capturas no GitHub | Concentrar a entrega no conceito, nos prompts e no aprendizado solicitado pelo desafio |
 
-Os itens da revisão são critérios e riscos, não comprovação de teste. A comprovação executada fica no documento [VALIDACAO.md](VALIDACAO.md).
+## O que funcionou bem
 
-## Comentários sobre a criação do aplicativo
+**Exemplos concretos deixaram as instruções mais úteis.** “10 reais na padaria” e “na verdade foram 12 reais” definem um comportamento observável: criar uma prévia e corrigir a mesma sugestão. Isso oferece um critério melhor do que pedir apenas um aplicativo “intuitivo”.
 
-**A confirmação é parte do produto.** Reduzir digitação não significa retirar controle. A IA pode sugerir categoria e preencher uma prévia; a pessoa deve ver o que será salvo e poder corrigir antes.
+**Reaproveitar o que estava coerente acelerou a revisão.** Os cálculos e as telas de apoio continuaram úteis. A mudança principal foi colocar a conversa no centro e conectá-la a um modelo capaz de interpretar pedidos com contexto.
 
-**O cálculo precisa ser mais previsível que a conversa.** Valores monetários são tratados em centavos, e receitas, despesas e saldo usam a mesma fonte de dados. Uma resposta agradável perde valor quando não corresponde ao histórico.
+**A confirmação explícita manteve o usuário no controle.** A conversa reduz a necessidade de preencher campos, mas não dispensa a revisão. Uma sugestão de categoria ou de meta continua sendo uma proposta até a pessoa confirmá-la.
 
-**Um MVP precisa ter limites visíveis.** A demonstração usa regras locais e dados fictícios. Isso permite verificar o fluxo sem custo de API, autenticação ou integração bancária. Também revela uma limitação real: escrever frases livres não garante que elas sejam compreendidas.
+## O que exigiu ajustes
 
-**A tela deve ajudar a entender, não apenas impressionar.** Verde escuro, áreas claras e poucos elementos dão destaque ao saldo e à conversa. O relatório complementa números com texto; sinais e rótulos acompanham as cores. A versão móvel deve manter os controles acessíveis.
+**Um chat visível não é necessariamente o centro da experiência.** Na primeira composição, os indicadores e as transações dominavam a tela. Foi necessário reorganizar espaço e navegação para que a conversa fosse o ponto de partida.
 
-## Reflexão sobre o processo
+**Pedir à IA para não anunciar gravações não foi suficiente.** Durante os testes, houve resposta redigida como se um registro já tivesse sido salvo, embora ele ainda estivesse em prévia. O ajuste foi tornar a mensagem dessa etapa controlada pelo aplicativo. Quando há uma sugestão de transação ou meta, o texto informa que ela aguarda confirmação; a projeção de meta também é recalculada pelo aplicativo.
 
-### O que funcionou bem?
+**O serviço de IA pode falhar.** Houve falhas pontuais nas chamadas. O fluxo precisou preservar a mensagem, informar o erro e permitir reenvio, sem alterar indevidamente os dados. As novas tentativas exercitadas funcionaram, mas isso não torna o serviço infalível.
 
-Descrever exemplos concretos foi mais útil do que pedir apenas “um app financeiro com IA”. A frase de entrada, a prévia esperada e o efeito sobre o saldo transformaram uma ideia ampla em uma experiência verificável. Delimitar o MVP também evitou ampliar o trabalho para bancos, investimentos ou contas de usuário.
+**Persistência local tem limites.** Os registros permanecem naquele navegador. Não há sincronização entre dispositivos nem backup em nuvem. A conversa com a IA depende de conexão e envia mensagens e contexto necessário ao provedor, mesmo com os registros armazenados localmente.
 
-A revisão complementar trouxe um contraponto: além do caminho feliz, o projeto precisava considerar ambiguidades, cliques repetidos e simulações inválidas. Registrar os riscos antes de concluir ajudou a orientar a verificação.
+## O que foi verificado
 
-### O que não funcionou como uma solução completa?
+A versão final foi conferida com dados fictícios em ambiente local, incluindo chamadas reais à IA, registro e correção de uma despesa, consultas ao contexto financeiro e planejamento de meta. A interface foi verificada em desktop e celular.
 
-O interpretador por regras não entende linguagem natural de forma geral. Ele demonstra a jornada, mas não substitui uma integração de IA validada. Também não há sincronização entre dispositivos: os registros ficam no navegador. A simulação de reserva é uma conta sem rendimentos, não uma previsão financeira.
+Foram aprovados **22 testes automatizados** e a geração da versão de distribuição. Os testes cobrem regras financeiras e aspectos da integração, como validação de entradas e respostas, confirmação separada da conversa e tratamento de falhas. As capturas mostram estados reais do aplicativo; não são imagens geradas apresentadas como funcionamento.
 
-Uma imagem gerada também não é automaticamente uma especificação pronta. Elementos interativos, estados vazios, confirmação, limites e adaptação ao celular precisam ser explicitados e verificados na implementação.
+Esse conjunto de verificações não equivale a uma auditoria completa de acessibilidade, teste de segurança exaustivo, validação em todos os navegadores ou pesquisa com usuários. O aplicativo foi testado localmente; o repositório público apresenta os materiais da entrega, sem afirmar que há uma versão hospedada para uso público.
 
-### O que foi aprendido sobre conversar com IAs?
+## O que o processo ensinou sobre conversar com IAs
 
-O principal aprendizado deste projeto é que um bom prompt funciona como um acordo verificável: informa contexto, público, objetivo, exemplos, limites e critérios. Pedidos como “pergunte quando faltar informação”, “não grave antes da confirmação” e “explique a fórmula” dão à IA uma direção mais útil do que adjetivos genéricos.
+Um bom prompt deve descrever **contexto, intenção, exemplos, limites e critérios de aceitação**. Frases como “pergunte quando faltar informação”, “corrija a mesma prévia” e “não salve antes da confirmação” tornam a expectativa mais clara e ajudam a encontrar desvios.
 
-Vibe Coding não elimina a revisão. A IA acelera a criação, mas é necessário comparar intenção, interface, comportamento e evidências. Documentar uma limitação com honestidade é mais útil para o portfólio do que apresentar uma simulação como um produto final.
+Também ficou evidente que instruções precisam ser acompanhadas de verificação. Uma resposta educada pode conter uma afirmação incorreta sobre o estado do aplicativo. Por isso, é necessário comparar o que foi pedido, o que aparece na tela e o que realmente mudou nos dados.
 
-Esta reflexão descreve o trabalho documentado e as lições extraídas dele. Não atribui ao participante testes de usuário, entrevistas ou experiências pessoais que não ocorreram.
+O aprendizado central é usar a IA como parceira de criação e revisão, mantendo decisões importantes verificáveis. Vibe Coding inclui observar o resultado, reformular o pedido e corrigir o produto quando a experiência não corresponde à intenção inicial.
 
-## Próximo experimento proposto
+## Próximo experimento
 
-Realizar o piloto descrito no PRD com cinco pessoas iniciantes e dados fictícios. Observar se entendem a prévia, conseguem corrigir a categoria, interpretam o saldo do período e distinguem uma simulação de dinheiro realmente reservado. Só depois desses resultados faz sentido avaliar uma integração real com IA e persistência em nuvem. O piloto é uma proposta futura, não uma pesquisa concluída.
+A hipótese de que conversar facilita a organização financeira ainda precisa ser testada com pessoas. O próximo passo proposto é um piloto com cinco iniciantes e dados fictícios: registrar, corrigir e cancelar uma despesa; consultar o mês; e explicar uma meta.
+
+Seria observado se a pessoa distingue prévia de registro salvo, entende o saldo do período e percebe que o aporte planejado não representa dinheiro transferido. Esse piloto é uma proposta futura, não uma pesquisa já realizada.
